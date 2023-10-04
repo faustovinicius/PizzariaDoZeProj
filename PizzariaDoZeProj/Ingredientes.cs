@@ -111,6 +111,61 @@ namespace PizzariaDoZeProj
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+        public void AtualizaTelaEditar(int id)
+        {
+            //Instância e Preenche o objeto com os dados da view
+            var ingrediente = new Ingrediente
+            {
+                Id = id,
+            };
+            try
+            {
+                // chama o método para buscar todos os dados da nossa camada model
+                DataTable linhas = dao.Buscar(ingrediente);
+
+                foreach (DataRow row in linhas.Rows)
+                {
+                    textBoxId.Text = row[0].ToString();
+                    textBoxNome.Text = row[1].ToString();
+                }
+                textBoxNome.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void DataGridViewDados_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (dataGridViewDados.SelectedCells.Count > 0)
+            {
+                //pega a primeira coluna, que esta com o ID, da linha selecionada
+                DataGridViewRow selectedRow = dataGridViewDados.Rows[dataGridViewDados.SelectedCells[0].RowIndex];
+                int id = Convert.ToInt32(selectedRow.Cells[0].Value);
+                AtualizaTelaEditar(id);
+            }
+        }
+        private void ButtonEditar_Click(object sender, EventArgs e)
+        {
+            //Instância e Preenche o objeto com os dados da view
+            var ingrediente = new Ingrediente
+            {
+                Id = int.Parse(textBoxId.Text),
+                Nome = textBoxNome.Text,
+            };
+            try
+            {
+                // chama o método da model para editar
+                dao.Editar(ingrediente);
+                MessageBox.Show("Dados editados com sucesso! " + textBoxId.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
+
 }

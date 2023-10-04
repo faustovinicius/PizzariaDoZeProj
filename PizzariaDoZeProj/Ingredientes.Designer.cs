@@ -30,7 +30,7 @@
         {
             labelIngredientes = new Label();
             panel1 = new Panel();
-            textBoxID = new TextBox();
+            textBoxId = new TextBox();
             LabelID = new Label();
             labelNome = new Label();
             textBoxNome = new TextBox();
@@ -58,7 +58,7 @@
             // panel1
             // 
             panel1.BackgroundImage = Properties.Resources.logopizzaria;
-            panel1.Controls.Add(textBoxID);
+            panel1.Controls.Add(textBoxId);
             panel1.Controls.Add(LabelID);
             panel1.Controls.Add(labelNome);
             panel1.Controls.Add(textBoxNome);
@@ -67,13 +67,13 @@
             panel1.Size = new Size(476, 113);
             panel1.TabIndex = 0;
             // 
-            // textBoxID
+            // textBoxId
             // 
-            textBoxID.Location = new Point(39, 47);
-            textBoxID.Name = "textBoxID";
-            textBoxID.Size = new Size(58, 23);
-            textBoxID.TabIndex = 0;
-            textBoxID.KeyPress += TextBoxID_KeyPress;
+            textBoxId.Location = new Point(39, 47);
+            textBoxId.Name = "textBoxId";
+            textBoxId.Size = new Size(58, 23);
+            textBoxId.TabIndex = 0;
+            textBoxId.KeyPress += TextBoxID_KeyPress;
             // 
             // LabelID
             // 
@@ -130,6 +130,7 @@
             buttonEditar.TabIndex = 3;
             buttonEditar.Text = "Editar";
             buttonEditar.UseVisualStyleBackColor = false;
+            buttonEditar.Click += ButtonEditar_Click;
             // 
             // buttonSalvar
             // 
@@ -168,11 +169,15 @@
             // 
             // dataGridViewDados
             // 
+            dataGridViewDados.AllowUserToAddRows = false;
             dataGridViewDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDados.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridViewDados.Location = new Point(77, 309);
+            dataGridViewDados.MultiSelect = false;
             dataGridViewDados.Name = "dataGridViewDados";
             dataGridViewDados.RowTemplate.Height = 25;
-            dataGridViewDados.Size = new Size(201, 117);
+            dataGridViewDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewDados.Size = new Size(312, 117);
             dataGridViewDados.TabIndex = 60;
             // 
             // Ingredientes
@@ -206,7 +211,7 @@
         public TextBox textBoxNome;
         public Label labelNome;
         public Label LabelID;
-        public TextBox textBoxID;
+        public TextBox textBoxId;
         public Button buttonExcluir;
         public Button buttonEditar;
         public Button buttonSalvar;

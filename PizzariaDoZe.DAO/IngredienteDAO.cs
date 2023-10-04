@@ -91,6 +91,7 @@ public class IngredienteDAO
         _ = comando.ExecuteNonQuery();
     }
 
+
     public void Excluir(Ingrediente ingrediente)
     {
         using var conexao = factory.CreateConnection(); //Cria conexão
@@ -109,6 +110,7 @@ public class IngredienteDAO
         _ = comando.ExecuteNonQuery();
 
     }
+
 
 }
 
