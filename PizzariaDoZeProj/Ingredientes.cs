@@ -147,6 +147,30 @@ namespace PizzariaDoZeProj
                 AtualizaTelaEditar(id);
             }
         }
+
+        private void ButtonExcluir_Click(object sender, EventArgs e)
+        {
+            if (textBoxId.Text.Length <= 0)
+            {
+                MessageBox.Show("Selecione um ingrediente!");
+                return;
+            }
+            //Instância e Preenche o objeto com os dados da view
+            var ingrediente = new Ingrediente
+            {
+                Id = int.Parse(textBoxId.Text),
+            };
+            try
+            {
+                // chama o método da model para excluir
+                dao.Excluir(ingrediente);
+                MessageBox.Show("Dados excluidos com sucesso! " + textBoxId.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void ButtonEditar_Click(object sender, EventArgs e)
         {
             //Instância e Preenche o objeto com os dados da view
@@ -165,6 +189,7 @@ namespace PizzariaDoZeProj
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
     }
 

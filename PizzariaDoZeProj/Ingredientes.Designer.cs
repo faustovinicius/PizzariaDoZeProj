@@ -73,7 +73,6 @@
             textBoxId.Name = "textBoxId";
             textBoxId.Size = new Size(58, 23);
             textBoxId.TabIndex = 0;
-            textBoxId.KeyPress += TextBoxID_KeyPress;
             // 
             // LabelID
             // 
@@ -117,6 +116,7 @@
             buttonExcluir.TabIndex = 4;
             buttonExcluir.Text = "Excluir";
             buttonExcluir.UseVisualStyleBackColor = false;
+            buttonExcluir.Click += ButtonExcluir_Click;
             // 
             // buttonEditar
             // 
