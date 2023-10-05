@@ -1,0 +1,8 @@
+USE db_pizza;
+
+CREATE TABLE cad_ingredientes (
+    id_ingredientes INT AUTO_INCREMENT,
+    descricao_ingrediente VARCHAR(100),
+    PRIMARY KEY (id_ingredientes),
+    UNIQUE KEY nome_UNIQUE (descricao_ingrediente)
+);
